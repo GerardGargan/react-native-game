@@ -30,6 +30,11 @@ export default function GameScreen({ userNumber, onGameOver }) {
         }
     }, [currentGuess, userNumber, onGameOver]);
 
+    useEffect(() => {
+        minBoundary = 1;
+        maxBoundary = 100;
+    }, [])
+
     function nextGuessHandler(direction) {
         if((direction === 'lower' && currentGuess < userNumber) || (direction === 'higher' && currentGuess > userNumber)) {
             Alert.alert('Dont lie!', 'You know that is wrong...', [{ text: 'Sorry', style: 'cancel' }]);
